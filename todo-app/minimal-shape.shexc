@@ -1,0 +1,34 @@
+PREFIX ex: <http://example.org/>
+PREFIX s: <http://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX t: ex:<todo-app> # is this possible?
+
+t:Task {
+           # a Task MUST have..
+           t:label xsd:string ;
+           t:creator IRI ;
+           t:dateCreated :DateTime ;
+           t:dateModified :DateTime ;
+           ex:state [ex:todo ex:done] ;
+
+            # a Task CAN have..
+            t:description xsd:string? ; # just a string for the time beeing
+            t:assignee IRI?;
+            t:dateCompleted :DateTime? .
+
+            # can a task belong to multiple lists? ie do we need to list the task parent
+}
+
+t:TodoList {
+           # a TodoList MUST have..
+           t:title xsd:string ;
+           t:creator IRI ;
+           t:dateCreated :DateTime ;
+           t:dateModified :DateTime ;
+           t:tasks @t:Task* ; # zero or more Tasks
+
+           # a TodoList CAN have..
+           t:description xsd:string? ; # just a string for the time beeing
+           t:sharedWith IRI* ;
+           #t:visibility .
+}

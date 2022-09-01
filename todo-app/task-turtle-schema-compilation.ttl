@@ -1,0 +1,52 @@
+@base <http://schema.org> .
+@prefix : <http://schema.org/> . # empty prefix
+
+<todo-item> a :CreativeWork, :DataFeedItem, :ListItem ;
+            :name "Buy milk" ; # :t
+            :creator "John Cena" ;
+            :dateCreated :DateTime ;
+            :dateModified :DateTime ;
+            :position [ a :Integer ] ; # user may want to rearrange the list
+            # :status "todo" # boolean? but maybe more than two statuses (stati?)
+            :actionStatus ( :ActiveActionStatus
+                            :CompletedActionStatus
+                            :FailedActionStatus
+                            :PotentialActionStatus
+                        ) ;
+            # opt
+            :description "I forgot about this last time.." ;
+            :contributor ([ a :Person, :Organization ] ) ; # assigned to
+            :hasPart <todo-item> ; # depends on
+            :isPartOf <todo-item> ; # is depended on
+            :parent [ a <todo-item>, <todo-list> ] ; # actually could just be another :ListItem..
+            :children ( [ a <todo-item>] ) ;
+            :keywords [ a :Text, :URL] ; # tags, ...
+            :mentions [ a :Thing ] ; # references, ...
+            :potentialAction (
+                    :UpdateAction # edit
+                    :AchieveAction # 'done'
+                    :CreateAction # new child-todo
+                    :SearchAction # filter, search
+                    :InteractAction # toggle status
+                    :TransferAction # move items between lists
+                    :OrganizeAction # reorganize list
+                    :InformAction # notifications
+                    :ShareAction # assign
+            ) ;
+            :endTime :DateTime ; # :startTime implied by :dateCreated
+            :QualitativeValue [ a :Integer ] . # priority?
+            # :duration [ a :Duration ] ; # deadline
+            # missing:
+            # - recurrence/schedule
+            # - completedAt/By, result
+
+
+            # to be discussed
+            # - filter list/view?
+            # - filter criteria
+            # - reorder list
+            # - share opinionated views of a list
+            # - does every user see the same list?
+            # - how to have a own prefered default order of the list?
+            # -
+           :position xsd:integer ; # user may want to rearrange the list

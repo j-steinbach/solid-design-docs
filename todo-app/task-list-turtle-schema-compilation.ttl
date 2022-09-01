@@ -1,0 +1,22 @@
+@base <http://example.org/> .
+@prefix : <http://schema.org/> . # empty prefix
+
+<todo-list> a :ItemList, :DataFeed, :CreativeWork ;
+            :name "My Todolist!" ;
+            :creator [ a :Person, :Organization ]; # :author, :OwnershipInfo?
+            :dateCreated :DateTime ;
+            :dateModified :DateTime ;
+            :itemListElement ( <todo-item> ) ; # :dataFeedElement
+            # opt
+            :description [ a :Text, :MediaObject ];
+            :contributor ([ a :Person, :Organization ] ) ; # shared with
+            :acquiredFrom [ a :Person, :Organization ] ; # who shared the list with me (may differ from creator)?
+            :potentialAction (
+                    :UpdateAction # edit
+                    :CreateAction # new todo
+                    :SearchAction # filter, search
+                    :OrganizeAction # reorganize list
+                    :ShareAction
+            ) .
+            # missing
+            # - access controls

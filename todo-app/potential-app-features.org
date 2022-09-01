@@ -1,0 +1,35 @@
+Todo-Item
+- ItemName/ItemTitle/ItemHeader :: String
+- ItemId :: Integer? URI?
+- ItemState/ItemCompleted :: Todo/Done (Pending, Blocked, …)
+- ItemCreatedAt :: Date
+- ItemCreatedBy :: Person
+- Optional
+  - ItemBody/ItemDescription :: Text, Images, Media?
+  - ItemResult/ItemDeliverable :: Link? to result of activity
+  - ItemCompletedAt :: Date
+  - ItemCompletedBy :: Person
+  - ItemSharedWith :: Person(s) or organization(s)
+  - ItemAssignedTo :: Person
+  - ItemPriority :: Default/Important/Urgent
+  - ItemDeadline :: Date
+  - ItemDependsOn :: Item
+  - ItemIsDependedOnBy :: Item
+  - ItemChildren :: Item
+  - ItemParent :: Item or List
+  - ItemAnnotations?/ItemTags?/ItemCategories?/ItemContext?/… :: List of tags/categories/… ??
+  - ItemNotifyWhen :: Conditional notifications ??
+  - ItemRecurrence :: Task repeats
+
+Todo-List
+- ListItems :: Collection of Todo-Items
+- ListOwner :: Person or Organization
+- ListSharedWith :: Person(s) or organization(s)
+  - ListState? :: Private/Public
+- ListReceivedFrom/ListOriginatesFrom :: Person or Organization
+- ListLastUpdated :: Date
+- ListCreated :: Date
+- Optional
+  - ListDescription/ListComment :: Text, Images, Media?
+  - ListName :: (only needed when multiple lists, ex. when shared)
+  - ListId :: URI?
