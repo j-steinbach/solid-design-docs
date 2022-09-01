@@ -4,26 +4,26 @@ Some design docs for the Solid-Todo-App.
 
 The most important:
 
-- app-spec.md
+- _app-spec.md_
 
 as I try to have it define the app in a normative way.
 
 Maybe useful:
 
-- minimal-shape.shexc
+- _minimal-shape.shexc_
 
 Trying to describe the minimal data shape
 
 Less useful:
 
-- task-turtle-schema-compilation.ttl
-- task-list-turtle-schema-compilation.ttl
+- _task-turtle-schema-compilation.ttl_
+- _task-list-turtle-schema-compilation.ttl_
 
 Invalid Turtle -- butcher it for the Schema.org SPO's.
 
 Historical:
 
-- potential-app-features.org 
+- _potential-app-features.org_
 
 The very first iteration of "thinking about the app feature-set"
 
